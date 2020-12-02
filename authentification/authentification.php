@@ -46,7 +46,7 @@
             echo('Success');
         }else{
             reportError($db,"Create",$matricule,"Duplicate entry with the same 'Matricule'","POST");
-            echo("[Error]:Duplicate entry with the same 'Matricule'");
+            echo("[Error]: Another account has the same 'Matricule'");
         }
     }
 
@@ -70,11 +70,11 @@
                     reportError($db,"LOGIN",$matricule,"Cannot update lastconnection field","POST");
                 }
             }else{
-                echo("Wrong Password");
+                echo("[Error]:Wrong Password");
             }
         }else{
             reportError($db,"LOGIN",$matricule,"Select request failed","POST");
-            echo('Error');
+            echo('[Error]:Internal error. We are resolving this mistake. Try again later');
         }
     }
 ?>
