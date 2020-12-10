@@ -1,10 +1,10 @@
 <?php
     function OpenCon()
      {
-        $dbhost = "mysql:host=localhost;dbname=authentification";
+        $dbhost = "mysql:host=localhost;dbname=cesa_authentification";
         $dbuser = "test";
         $dbpass = "password";
-        $db = "authentification";
+        $db = "cesa_authentification";
         //$conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
          $conn = new PDO($dbhost,$dbuser,$dbpass);
         return $conn;     
