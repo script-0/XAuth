@@ -6,7 +6,8 @@
     try{
         $db = OpenCon();        
     }catch(PDOException $e){
-        echo("Connection can't be established to the BD");
+        echo("[Error]:Connection can't be established to the BD");
+        return;
     }
     
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -26,9 +27,9 @@
         }else if($do == "Login"){
             signin($db);
         }
-
     }else{
         header('HTTP/1.0 403 Forbidden');
+        echo("[Error]:Method unallowed");
     }
 
     function signup($db){
@@ -59,7 +60,7 @@
         $result = $stmt->fetchAll();
         //$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if(sizeof($result) == 0){
-            echo("Empty");
+            echo("No user with this 'Matricule'");
         }else if( sizeof($result) > 0){
             $row = $result[0];
             if($row['password'] == $password){
